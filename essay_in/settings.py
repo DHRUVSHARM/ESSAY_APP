@@ -108,10 +108,10 @@ DATABASES = {
 """
 
 # Alternatively, using the complete URL
+# django_project/settings.py
 DATABASES = {
-    "default": env.dj_db_url("POSTGRES_URL", default="sqlite:///db.sqlite3"),
+"default": env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3"),
 }
-
 """
     DATABASES = {
         "default": {
