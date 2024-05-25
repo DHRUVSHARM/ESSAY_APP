@@ -164,7 +164,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SITE_ID = 2
+SITE_ID = 1
 
 # settings.py
 SOCIALACCOUNT_PROVIDERS = {
