@@ -108,7 +108,9 @@ DATABASES = {
 """
 
 # Alternatively, using the complete URL
-DATABASES = {"default": dj_database_url.config(default=env.str("POSTGRES_URL"))}
+DATABASES = {
+    "default": env.dj_db_url("POSTGRES_URL", default="sqlite:///db.sqlite3"),
+}
 
 """
     DATABASES = {
