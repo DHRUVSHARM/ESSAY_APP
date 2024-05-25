@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Feedback for {{ essay.title }}</h1>
+    <p><strong>Title:</strong> {{ essay.title }}</p>
+    <p><strong>Body:</strong> {{ essay.body }}</p>
+    <p><strong>Date of Submission:</strong> {{ essay.submission_time }}</p>
+
+    <h2>Feedback</h2>
+    <p><strong>Spelling Mistake Count:</strong> {{ essay.spelling_mistake_count }}</p>
+    <p><strong>Spelling Mistakes:</strong></p>
+    <ul>
+        {% for mistake in essay.spelling_mistakes %}
+            <li>{{ mistake.word }} (Start: {{ mistake.start_index }}, End: {{ mistake.end_index }})</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Content Related to Title:</strong> {{ essay.related_to_title|yesno:"Yes,No" }}</p>
+    <p><strong>Quality Score:</strong> {{ essay.essay_score }} / 10</p>
+
+    <a href="{% url 'essay_list' %}">Back to Essays</a>
+{% endblock %}

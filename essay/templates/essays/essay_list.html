@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Essays</h1>
+<ul>
+    {% for essay in essays %}
+    <li>{{ essay.title }} - {{ essay.body|truncatechars:50 }} - Submitted on {{ essay.submission_time }}
+        <a href="{% url 'full_submission' essay.id %}">Full Submission</a> |
+        <a href="{% url 'full_feedback' essay.id %}">View Feedback</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

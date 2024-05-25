@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Full Submission</h1>
+    <h2>{{ essay.title }}</h2>
+    <p>{{ essay.body }}</p>
+    <p>Submitted on: {{ essay.submission_time }}</p>
+    <a href="{% url 'essay_list' %}">Back to Essays</a>
+{% endblock %}
