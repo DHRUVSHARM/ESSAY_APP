@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 import openai
@@ -11,11 +12,13 @@ from django.contrib.auth.decorators import login_required
 import json
 import logging
 
+from essay_in.settings import *
+
 # Create your views here.
 
 from django.shortcuts import get_object_or_404
 
-openai.api_key = settings.OPENAI_API_KEY
+openai.api_key = OPENAI_API_KEY
 
 
 def home(request):

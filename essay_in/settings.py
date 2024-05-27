@@ -18,6 +18,11 @@ from environs import Env  # new
 env = Env()  # new
 env.read_env()  # new
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -107,10 +112,11 @@ DATABASES = {
 }
 """
 
-# Alternatively, using the complete URL
+# django_project/settings.py
 DATABASES = {
-    "default": env.dj_db_url("POSTGRES_URL", default="sqlite:///db.sqlite3"),
+    "default": env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3"),
 }
+
 
 """
     DATABASES = {

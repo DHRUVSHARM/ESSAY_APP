@@ -1,3 +1,5 @@
+<!-- essays/submit_essay.html -->
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -7,4 +9,25 @@
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
+    {% if form.errors %}
+        <div class="form-errors">
+            {% for field in form %}
+                {% if field.errors %}
+                    <div class="field-errors">
+                        <strong>{{ field.label }}:</strong>
+                        {% for error in field.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if form.non_field_errors %}
+                <div class="non-field-errors">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
 {% endblock %}

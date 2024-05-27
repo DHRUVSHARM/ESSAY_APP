@@ -20,7 +20,7 @@ class GlobalSettings(models.Model):
 class Essay(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
-    body = models.TextField(max_length=500)
+    body = models.TextField()
     submission_time = models.DateTimeField(
         default=timezone.now
     )  # Field to store submission time
